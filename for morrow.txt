@@ -67,3 +67,20 @@ for img_name in os.listdir(OriginalIMG):
     cv2.waitKey(0)
 
 cv2.destroyAllWindows()
+================================================
+import csv
+
+# Create a 2D list with non-Latin language data
+data = [["Привет", "Как дела?"], ["Merhaba", "Nasılsın?"]]
+
+# Specify the file name and open it in write mode
+filename = "non_latin_data.csv"
+with open(filename, mode="w", encoding="utf-8", newline="") as file:
+
+    # Create a CSV writer object
+    writer = csv.writer(file)
+
+    # Write each row of the data to the CSV file
+    for row in data:
+        writer.writerow(row)
+
