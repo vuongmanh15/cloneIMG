@@ -1,0 +1,69 @@
+import csv
+
+# Sample data
+data = [['Привет', 'Как', 'дела'],
+        ['Dobar dan', 'Kako', 'ste']]
+
+# CSV file path
+csv_path = 'data.csv'
+
+# Open the CSV file in binary mode and specify encoding
+with open(csv_path, 'w', newline='', encoding='utf-8-sig') as csv_file:
+    # Create a CSV writer
+    writer = csv.writer(csv_file)
+
+    # Write each row to the CSV file
+    for row in data:
+        writer.writerow(row)
+===================================
+import cv2
+import numpy as np
+import os
+
+# Path to the original images folder
+OriginalIMG = 'C:/Users/vuong/OneDrive/Desktop/stock'
+
+# Path to the new images folder
+CroppedIMG = 'C:/Users/vuong/OneDrive/Desktop/crop'
+
+# Create the new folder if it doesn't exist
+if not os.path.exists(CroppedIMG):
+    os.makedirs(CroppedIMG)
+
+# Define the ROIs
+roi_A = (146, 124, 262, 368) # (y_start, x_start, height, width)
+roi_B = (200, 600, 200, 300) # (y_start, x_start, height, width)
+
+# Loop through each image in the original folder
+for img_name in os.listdir(OriginalIMG):
+    # Load the image
+    img_path = os.path.join(OriginalIMG, img_name)
+    img = cv2.imread(img_path)
+
+    # Determine the ROI to use
+    if "Area_D" in img_name:
+        roi = roi_A
+    elif "Area_B" in img_name:
+        roi = roi_B
+    else:
+        print(f"Image {img_name} does not match any ROI, skipping...")
+        continue
+
+    # Extract the ROI
+    y_start, x_start, height, width = roi
+    roi_img = img[y_start:y_start+height, x_start:x_start+width]
+
+    # Resize the ROI image
+    new_size = (200, 200)
+    resized_img = cv2.resize(roi_img, new_size)
+
+    # Save the cloned image to the new folder
+    new_img_name = os.path.splitext(img_name)[0] + '_cloned.jpg'
+    new_img_path = os.path.join(CroppedIMG, new_img_name)
+    cv2.imwrite(new_img_path, resized_img)
+
+    # Display the result (optional)
+    cv2.imshow('Cloned image', resized_img)
+    cv2.waitKey(0)
+
+cv2.destroyAllWindows()
