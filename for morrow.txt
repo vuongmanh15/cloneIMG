@@ -147,3 +147,86 @@ For additional assistance, contact SEH's technical support team via email, phone
 
 Conclusion
 The SEH dongle server offers a powerful and secure solution for managing and sharing USB dongles across your organization. By centralizing dongle management and enabling efficient resource sharing, the dongle server can help your organization save time, reduce costs, and improve productivity.
+========================================================
+
+Here is a detailed presentation about dongle server by SEH and how to setup the environment:
+
+Dongle Server by SEH:
+
+• A dongle server is a software solution that allows multiple users to access a software license stored on a physical dongle. The dongle server software runs on a central server and manages access to the license dongle. 
+
+• User PCs do not require a locally installed dongle. Instead, they access the license on the dongle server. This allows floating licenses between multiple users.
+
+• Dongle server by SEH is a software solution that provides centralized license management. It supports major dongle types like HASP, CodeMeter, etc.
+
+• Key benefits:
+ - Centralized license management: All licenses are stored centrally on the dongle server. Users check out and return licenses as needed.
+ - Floating licenses: Licenses can be flexibly allocated to different users. Not every PC needs its own dedicated license dongle. 
+ - Redundancy: Dongle server can be set up redundantly to avoid downtime in case of hardware failure.
+ - Easy administration: All dongles and licenses can be managed centrally through an intuitive web interface.
+
+Setup environment for Dongle Server:
+
+1. Install the Dongle Server software on a server PC. This will be the central license server.
+
+2. Attach your software dongles to the dongle server PC. The dongle server software needs to access the dongles directly.
+
+3. Register your dongles and licenses in the dongle server web interface. You need to specify the product, number of concurrent users, etc. for each license.
+
+4. Install a small dongle client software on the user PCs. The dongle client will communicate with the dongle server to check out and return licenses. 
+
+5. In the software on the user PCs, configure the dongle server PC as the license server. Then the software will automatically get licenses from the dongle server as needed.
+
+6. Optionally, you can set up a redundant dongle server to ensure high availability. The dongle clients can then work through the primary or the secondary dongle server.
+
+7. Manage your licenses and dongles centrally through the web interface of the dongle server. You can analyze usage statistics, set up notifications, etc.
+
+That covers the overview of dongle server by SEH and how to setup the environment. Let me know if you have any other questions!
+==============================================
+
+Yes, here are the steps to install the dongle client software on user PCs:
+
+Download the dongle client software from the SEH website. You need to select the correct version that matches your dongle server software.
+
+Install the dongle client software on each user PC that needs to access licenses from the dongle server. This typically requires administrator rights on the PC.
+
+During the installation, enter the IP address or hostname of your dongle server PC. This tells the dongle client which dongle server it needs to connect to.
+
+If your dongle server uses has a custom port number, also enter that port number. The default port for dongle server communication is 1947.
+
+For redundancy, you can optionally enter a secondary dongle server. The dongle client will then automatically switch to the secondary server in case the primary server becomes unavailable.
+
+Once the installation completes, the dongle client will start running as a Windows service in the background. It will regularly check in with the specified dongle server(s) to get available licenses for the PC.
+
+The dongle client service will continue running in the background and does not require any user intervention or logon. It will make sure licenses are checked in and out as needed for the installed software.
+
+To update or reconfigure dongle client settings, you need to run the dongle client configuration tool, either in the Start menu or by launching "Dongle Client Configurator" as an administrator.
+
+In the configuration tool, you can change the dongle server IP, port number, enable/disable redundancy, etc. These new settings will apply once you click "Save and Apply".
+
+To uninstall the dongle client, use the regular Windows uninstall process and remove "SEH Dongle Client" from the list of installed programs.
+==============================================
+
+That covers the basic steps to install and configure the dongle client software on your user PCs so they can access licenses managed by the dongle server. Let me know if you have any other questions!
+
+There are a few things you can check if the dongle client fails to connect to the dongle server:
+
+1. Make sure the dongle server software is running on the server PC. The dongle server needs to be powered on and the dongle server service needs to be running for the dongle clients to connect.
+
+2. Check if the dongle server PC is available on the network. If the dongle server PC has been shut down or disconnected from the network, the dongle clients will obviously not be able to connect. 
+
+3. Make sure any firewalls between the dongle clients and the dongle server have the necessary ports opened. The default port used for dongle server communication is 1947. This port needs to be opened on all firewalls.
+
+4. Check if the IP address of the dongle server has changed. If the IP address entered in the dongle client configuration has become incorrect, the dongle clients will not find the dongle server. You may need to update the IP address in the dongle client settings. 
+
+5. For a redundant setup with primary and secondary dongle server, check if both servers are unavailable. The dongle clients will try to connect to the secondary server only if the primary server cannot be reached. Both servers need to be down for the dongle clients to be unable to connect.
+
+6. Check the dongle server logs to see if there are any errors indicated that might cause connectivity issues. Look for errors related to licenses, dongles, communication ports, etc.
+
+7. Check the Windows event logs on the dongle clients for any errors related to the dongle client software. These could indicate issues connecting to the dongle server. 
+
+8. As a last resort, you may need to reinstall the dongle client software on some or all PCs to reset the connection to the dongle server. Make sure to double check all settings like dongle server IP, port number, etc. during reinstallation.
+
+9. If issues continue, it is best to contact SEH technical support for further help. They can do remote diagnostics on your dongle server and clients to locate and fix any problems.
+
+I hope this helps you resolve any connectivity issues between your dongle clients and dongle server. Let me know if you have any other questions!
