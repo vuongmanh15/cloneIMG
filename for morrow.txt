@@ -84,3 +84,66 @@ with open(filename, mode="w", encoding="utf-8", newline="") as file:
     for row in data:
         writer.writerow(row)
 
+===============================================
+Dongle Server by SEH: A Comprehensive Presentation
+Introduction
+A dongle server, also known as a USB license server, is a device that allows multiple users to remotely access and share a USB dongle over a network. By using a dongle server, organizations can centralize and manage dongle licenses, providing a more efficient way to share limited resources among multiple users. One such dongle server solution is the SEH dongle server.
+
+In this presentation, we will cover the following topics:
+
+Overview of SEH Dongle Server
+Benefits of Using a Dongle Server
+How to Set Up Your Environment for Using the SEH Dongle Server
+Configuration and Management of the Dongle Server
+Troubleshooting and Support
+1. Overview of SEH Dongle Server
+SEH's dongle server is a high-quality, reliable solution that enables users to securely access USB dongles over a network. The server supports a wide range of USB dongles, including popular license keys, such as HASP, SafeNet, Wibu, and more.
+
+Key features of the SEH dongle server include:
+
+Support for multiple USB dongle types
+Secure access and data transfer using encryption
+Centralized management of USB dongles
+Compatibility with various operating systems, including Windows, macOS, and Linux
+Easy setup and configuration
+2. Benefits of Using a Dongle Server
+There are several benefits to using a dongle server:
+
+Centralization: All dongles are managed in a central location, making it easier to track and manage licenses.
+Resource sharing: Multiple users can access a single dongle, maximizing the use of limited resources.
+Scalability: As your organization grows, you can easily add more dongles and users to the system.
+Security: Encrypted connections ensure secure data transfer and prevent unauthorized access.
+Reduced downtime: In case of hardware failure, dongles can be quickly switched to another server, minimizing downtime.
+3. How to Set Up Your Environment for Using the SEH Dongle Server
+To set up your environment, follow these steps:
+
+Hardware setup:
+
+Unpack the dongle server and connect it to your network using an Ethernet cable.
+Connect your USB dongles to the available USB ports on the dongle server.
+Connect the power supply and turn on the server.
+Software installation:
+
+Download the appropriate SEH UTN Manager software for your operating system from the SEH website (https://www.seh-technology.com/download.html).
+Install the SEH UTN Manager on each client computer that will access the dongle server.
+Connecting to the dongle server:
+
+Launch the SEH UTN Manager on the client computer.
+The UTN Manager will automatically discover the dongle server on the network. If not, you can manually add the server by entering its IP address.
+Select the desired dongle from the list of available devices and click "Connect" to establish a connection.
+4. Configuration and Management of the Dongle Server
+To configure and manage the dongle server, use the built-in web interface. Access the interface by entering the IP address of the dongle server in your web browser. You can configure various settings, such as network settings, device access control, and encryption options.
+
+To manage dongles and user access, use the SEH UTN Manager. The UTN Manager allows you to:
+
+Monitor the status of connected dongles
+Connect or disconnect dongles
+Reserve dongles for specific users
+Set priority access for certain users
+5. Troubleshooting and Support
+If you encounter issues with your dongle server, consult the user manual, which provides detailed troubleshooting steps. You can also visit the SEH website to access support resources, such as FAQs, knowledge base articles, and firmware updates.
+
+For additional assistance, contact SEH's technical support team via email, phone, or live chat.
+
+Conclusion
+The SEH dongle server offers a powerful and secure solution for managing and sharing USB dongles across your organization. By centralizing dongle management and enabling efficient resource sharing, the dongle server can help your organization save time, reduce costs, and improve productivity.
