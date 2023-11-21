@@ -5,6 +5,8 @@ import os
 
 def load_audio(file_path):
     audio, sr = librosa.load(file_path)
+    # Trim leading and trailing silence
+    audio, _ = librosa.effects.trim(audio)
     return audio, sr
 def list_audio_files(folder_path):
     # Lấy danh sách tất cả các file âm thanh trong thư mục
@@ -69,10 +71,10 @@ def plot_waveform(audio1, audio2, sr, title1, title2, save_path=None):
     plt.figure(figsize=(12, 5))
     
     # Plot Waveform of Audio 1 in black
-    plt.plot(np.arange(len(audio1)) / sr, audio1, color='black', label='Audio original')
+    plt.plot(np.arange(len(audio1)) / sr, audio1, color='black', label='Audio Original')
 
     # Plot Waveform of Audio 2 in red
-    plt.plot(np.arange(len(audio2)) / sr, audio2, color='red', label='Audio test')
+    plt.plot(np.arange(len(audio2)) / sr, audio2, color='red', label='Audio Test')
 
     plt.title('Waveform Comparison')
     plt.xlabel('Duration (s)')
@@ -104,8 +106,8 @@ def main():
         audio2, _ = load_audio(file_path_audio2)
 
         # So sánh độ giống nhau
-        similarity = compute_similarity(audio1, audio2, sr)
-        print(f'\nSo sánh {file_name}: Mức độ giống nhau = {similarity}')
+        similarity = compute_similarity(audio1, audio2, sr)*100
+        print(f'\nSo sánh {file_name}: Mức độ giống nhau = {similarity:.2f}%')
         if similarity < 0.9:
             print ("result: FAIL\n")
             plot_waveform(audio1, audio2, sr, 'Waveform of Audio 1', 'Waveform of Audio 2', save_path=f'C:\\Users\\vuong\\source\\source\\repos\\creatsub\\creatsub\\bin\\Release\\Done\\chart\\{file_name}_FAIL.png')
